@@ -60,7 +60,6 @@ ignore_this.txt
 *.ignore.*
 
 # Project-specific files
-/dickens*/
-/book.txt
-download_models_hf.py
+.venv/
+build/
 
