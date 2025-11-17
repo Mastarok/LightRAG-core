@@ -142,6 +142,7 @@ export default function QuerySettings() {
                       <SelectItem value="hybrid">{t('retrievePanel.querySettings.queryModeOptions.hybrid')}</SelectItem>
                       <SelectItem value="mix">{t('retrievePanel.querySettings.queryModeOptions.mix')}</SelectItem>
                       <SelectItem value="bypass">{t('retrievePanel.querySettings.queryModeOptions.bypass')}</SelectItem>
+                      <SelectItem value="fulltext">{t('retrievePanel.querySettings.queryModeOptions.fulltext')}</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>

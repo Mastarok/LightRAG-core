@@ -10,6 +10,7 @@ from fastapi.openapi.docs import (
     get_swagger_ui_oauth2_redirect_html,
 )
 import os
+import httpx
 import logging
 import logging.config
 import sys
@@ -466,6 +467,7 @@ def create_app(args):
             history_messages=None,
             keyword_extraction=False,
             **kwargs,
+            
         ) -> str:
             from lightrag.llm.openai import openai_complete_if_cache
 
@@ -487,6 +489,7 @@ def create_app(args):
                 history_messages=history_messages,
                 base_url=args.llm_binding_host,
                 api_key=args.llm_binding_api_key,
+                openai_client_configs={"http_client": httpx.AsyncClient(verify=False)},
                 **kwargs,
             )
 
@@ -797,6 +800,7 @@ def create_app(args):
                         base_url=host,
                         api_key=api_key,
                         embedding_dim=embedding_dim,
+                        client_configs={"http_client": httpx.AsyncClient(verify=False)}
                     )
             except ImportError as e:
                 raise Exception(f"Failed to import {binding} embedding: {e}")
